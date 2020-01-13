@@ -49,6 +49,8 @@ class Loader
       File.open(filepath) {|fd|
         return YAML.load(fd)
       }
+    rescue StandardError => e
+      STDERR.puts "Failed to parse #{filepath} (#{e})"
     end
   end
 

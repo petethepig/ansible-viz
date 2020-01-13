@@ -127,7 +127,7 @@ def build_graph(data, options)
 end
 
 def write(graph, filename)
-  Mustache.template_file = 'diagram.mustache'
+  Mustache.template_file = File.expand_path('../../../diagram.mustache', __FILE__)
   view = Mustache.new
   view[:now] = Time.now.strftime("%Y.%m.%d %H:%M:%S")
 
